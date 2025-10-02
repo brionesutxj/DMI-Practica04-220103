@@ -1,3 +1,3 @@
-# flutter_application_1
+# widget_app
 
-A new Flutter project.
+Jose Alejandro Briones Arroyo

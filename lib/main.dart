@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'presentation/screens/discover/discover_screen.dart';
+import 'theme/AppTheme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Aqui debería mostrarse el contenido de los videos'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Widget App - Scroll de Colores',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme(selectedColor: 1).getTheme(),
+      home: const DiscoverScreen(),
     );
   }
 }
