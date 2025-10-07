@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
-import '../../domain/entities/video_post.dart';
-import '../../infrastructure/models/local_video_model.dart';
-import '../../shared/data/local_video_posts.dart';
+import 'package:mi_primer_app/domain/entities/video_post.dart';
+import 'package:mi_primer_app/infrastructure/models/local_video_model.dart';
+
+import 'package:mi_primer_app/shared/data/local_video_posts.dart';
+
+
 
 class DiscoverProvider extends ChangeNotifier {
+
+  // TODO: Repository, DataSource
+
   bool initialLoading = true;
   List<VideoPost> videos = [];
 
+
   Future<void> loadNextPage() async {
-    await Future.delayed(const Duration(seconds: 5));
 
-    final List<VideoPost> newVideos = videoPosts
-        .map(
-          (video) => LocalVideoModel(
-            name: video['name'] ?? 'Sin título',
-            videoUrl: video['videoUrl'] ?? '',
-            likes: video['likes'] ?? 0,
-            views: video['views'] ?? 0,
-          ).toVideoPostEntity(),
-        )
-        .toList();
+    // await Future.delayed( const Duration(seconds: 2) );
 
-    videos.addAll(newVideos);
+    final List<VideoPost> newVideos = videoPosts.map( 
+      ( video ) => LocalVideoModel.fromJson(video).toVideoPostEntity()
+    ).toList();
+    
+    videos.addAll( newVideos );
     initialLoading = false;
     notifyListeners();
   }
+
+
 }

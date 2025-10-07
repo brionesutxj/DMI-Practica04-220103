@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/widgets/video/video_background.dart';
+import 'package:mi_primer_app/presentation/widgets/video/video_background.dart';
+import 'package:video_player/video_player.dart';
 
 class FullScreenPlayer extends StatefulWidget {
 
@@ -86,30 +87,6 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
       },
     );
   }
-}
-
-class asset {
-}
-
-extension on VideoPlayerController {
-  void play() {}
-  
-  void pause() {}
-  
-  Future<Object?>? initialize() {
-    return null;
-  }
-  
-  void dispose() {}
-}
-
-VideoPlayer(VideoPlayerController controller) {
-}
-
-class VideoPlayerController {
-  get value => null;
-  
-  static asset(String videoUrl) {}
 }
 
 
